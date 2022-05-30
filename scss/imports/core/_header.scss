@@ -1,1 +1,256 @@
-// css header
+.header {
+  &__top {
+    background-color: $cyan2-cl;
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    @include mid(true);
+    justify-content: space-between;
+    span {
+      text-transform: uppercase;
+      font-size: 16px;
+      font-weight: bold;
+      color: $white-cl;
+    }
+    &-logo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      a {
+        @include size(32px, 32px);
+        margin: 0px 10px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $blue3-cl;
+        border-radius: 100%;
+        img {
+          @include size(20px, 20px);
+        }
+      }
+    }
+  }
+  &__body {
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &-logo {
+      width: 160px;
+    }
+    &-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      .item {
+        display: flex;
+        height: 50px;
+        img {
+          height: 100%;
+          padding-right: 10px;
+        }
+      }
+    }
+    &-menu {
+      display: none;
+      width: 40px;
+      height: 22px;
+      position: relative;
+      cursor: pointer;
+      margin-left: 20px;
+      z-index: 30;
+      span {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        display: block;
+        background: $black-cl;
+        top: 50%;
+        @include transform(translateY(-50%));
+        // @include transition(transform 0.3s);
+      }
+      &:before,
+      &:after {
+        content: "";
+        width: 100%;
+        height: 2px;
+        display: block;
+        background: $black-cl;
+        @include transform(rotate(0deg) translateY(0px));
+        @include transition(transform 0.3s);
+      }
+      &::after {
+        position: absolute;
+        bottom: 0;
+      }
+      &.active {
+        &::before {
+          transform: rotate(45deg) translate(7px, 8px);
+          @include transition(transform 0.3s);
+        }
+        span {
+          opacity: 0;
+          @include transition(transform 0.3s);
+        }
+        &::after {
+          transform: rotate(-45deg) translate(5px, -8px);
+          @include transition(transform 0.3s);
+        }
+      }
+    }
+  }
+  &__bottom {
+    background-color: $cyan2-cl;
+    height: 45px;
+    .container {
+      height: 100%;
+    }
+    .nav {
+      height: 100%;
+      ul {
+        height: 100%;
+        @include mid(true);
+        justify-content: flex-start;
+        height: 100%;
+        @include transition($t);
+        li {
+          a {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: $white-cl;
+            text-transform: uppercase;
+            padding: 0px 20px;
+            color: #cceaf8;
+            &:first-child {
+              padding-left: unset;
+            }
+            img {
+              padding-left: 5px;
+              @include size(10px, 10px);
+              opacity: 0.5;
+            }
+          }
+          &:nth-child(2) {
+            position: relative;
+            @include transition($t);
+            a {
+              margin: 20px 0px;
+            }
+            .dropdown {
+              position: absolute;
+              top: 55px;
+              opacity: 0;
+              visibility: hidden;
+              @include transition($t);
+              ul {
+                display: flex;
+                flex-direction: column;
+                background-color: white;
+                align-items: flex-start;
+                li {
+                  border: 1px solid $gray-cl;
+                  width: 100%;
+                  height: 40px;
+                  &:nth-child(n + 2) {
+                    border-top: 0px;
+                  }
+                  a {
+                    margin: unset;
+                    height: 100%;
+                  }
+                }
+              }
+            }
+            &:hover .dropdown {
+              opacity: 1;
+              visibility: visible;
+              @include transition($t);
+            }
+          }
+          &:nth-child(3) {
+            position: relative;
+            a {
+              margin: 20px 0px;
+            }
+            .dropdown {
+              position: absolute;
+              top: 55px;
+              display: none;
+              ul {
+                display: flex;
+                flex-direction: column;
+                background-color: white;
+                align-items: flex-start;
+                li {
+                  border: 1px solid $gray-cl;
+                  width: 100%;
+                  height: 40px;
+                  &:nth-child(n + 2) {
+                    border-top: 0px;
+                  }
+                  a {
+                    margin: unset;
+                    height: 100%;
+                  }
+                }
+              }
+            }
+            &:hover .dropdown {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@include sm {
+  .header {
+    &__body {
+      .container {
+        justify-content: space-between;
+      }
+      &-logo {
+        width: 160px;
+      }
+      &-wrap {
+        display: none;
+      }
+      &-menu {
+        display: block;
+      }
+    }
+    &__bottom {
+      display: none;
+    }
+  }
+}
+@include xs {
+  .header {
+    &__top {
+      display: none;
+    }
+    &__bottom {
+      display: none;
+    }
+  }
+}
+.slider {
+  &__img {
+    height: calc(100vh - 181px);
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      overflow: hidden;
+    }
+  }
+}
