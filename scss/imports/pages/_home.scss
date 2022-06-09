@@ -1,8 +1,245 @@
-// CSS HOMEPAGE
-// Ví dụ
-.schero {
-    height: 100vh;
+.slider {
+  position: relative;
+  &__img {
+    height: calc(100vh - 181px);
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    position: relative;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      overflow: hidden;
+    }
+  }
+  &__content {
+    position: absolute;
+    top: 50%;
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    @include transform(translateY(-50%));
+    a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      color: $white-cl;
+      padding: 5px 20px;
+      background-color: $cyan2-cl;
+      border-radius: 20px;
+      img {
+        margin-right: 15px;
+        @include size(25px);
+      }
+    }
+  }
+}
+
+.service {
+  height: var(--height-service);
+  position: absolute;
+  width: 95%;
+  left: 50%;
+  @include transform(translateX(-50%));
+  margin-top: -100px;
+  background-color: $white-cl;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px -5px $cyan2-cl, 0px 5px 0px 0px $cyan2-cl;
+  &__item {
+    height: 100%;
+    .container {
+      @include mid(true);
+      height: 100%;
+    }
+    &-wrap {
+      @include mid(true);
+      flex-direction: column;
+      img {
+        @include size(70px);
+        object-fit: contain;
+        background-color: $cyan2-cl;
+        border-radius: 100%;
+        overflow: hidden;
+        padding: 15px;
+        position: relative;
+        box-shadow: 0px 0px 0px 5px $cyan2-cl;
+        border: 1px solid $gray-cl;
+      }
+      .content {
+        text-align: center;
+        p {
+          text-transform: uppercase;
+          color: $blue2-cl;
+          font-weight: bold;
+          margin: 15px 0px 5px 0px;
+        }
+      }
+      &:nth-child(2) {
+        border-left: 1px solid #ececec;
+        border-right: 1px solid #ececec;
+      }
+    }
+  }
+}
+
+.aboutus {
+  padding-top: 200px;
+  position: relative;
+  &::after,
+  &::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    top: 130px;
+    height: 1px;
+    background-color: #ececec;
+  }
+  &::before {
+    top: unset;
+    bottom: -70px;
+  }
+  .container {
+    display: flex;
+  }
+  &__content {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    h4,
+    h5 {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    h4 {
+      color: $cyan2-cl;
+    }
+    h5 {
+      color: $blue2-cl;
+      font-size: 3rem;
+    }
+    p {
+      width: 95%;
+      a {
+        color: $cyan2-cl;
+      }
+    }
+    &-button {
+      a {
+        color: $cyan2-cl;
+        text-transform: uppercase;
+        border: 2px solid $cyan2-cl;
+        padding: 5px 10px;
+        border-radius: 15px;
+        box-shadow: 0px 0px 10px -5px;
+        &:first-child {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+  &__img {
+    width: 50%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.product {
+  margin: 100px 0px;
+  text-align: center;
+  &__title {
+    position: relative;
+    h5,
+    h4 {
+      font-weight: bold;
+    }
+    h5 {
+      text-transform: uppercase;
+      color: $cyan2-cl;
+      padding-bottom: 10px;
+    }
+    h4 {
+      font-size: 3rem;
+      color: $blue2-cl;
+      span {
+        color: $green-cl;
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 3px;
+      background-color: $cyan2-cl;
+      left: 50%;
+      bottom: -10px;
+      @include transform(translateX(-50%));
+    }
+  }
+  &__item {
+    padding-top: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
+    &-wrap {
+      background-color: $cyan-cl;
+      margin: 0px 10px;
+      height: 350px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      box-shadow: 0px 0px 10px 2px $cyan-cl;
+      position: relative;
+      h6 {
+        color: $blue2-cl;
+        font-weight: bold;
+        font-size: 2rem;
+        padding-bottom: 10px;
+      }
+      span {
+        text-align: justify;
+        width: 85%;
+      }
+      .number {
+        font-size: 3rem;
+        font-weight: bold;
+        color: $white-cl;
+        background-color: $cyan2-cl;
+        border-radius: 100%;
+        @include size(50px);
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        @include transform(translateX(-50%));
+      }
+      &:first-child {
+        margin-left: unset;
+      }
+      &:last-child {
+        margin-right: unset;
+      }
+      a {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: $white-cl;
+        text-transform: uppercase;
+        background-color: $cyan2-cl;
+        padding: 5px 15px;
+        margin-top: 10px;
+      }
+    }
+  }
 }

@@ -30,6 +30,9 @@ $green-cl: #008000;
 $gray-cl: #c8c8c8;
 $gradient-cl: linear-gradient(180deg, #df1cff 0%, #814bf6 50.55%, #00bcff 100%);
 
+//Height
+$height-service: 200px;
+
 // timing transition - tuỳ chỉnh
 $t: 0.3s;
 $cubic: cubic-bezier(0.84, 0.13, 0.33, 0.97);
@@ -68,6 +71,7 @@ $cubic: cubic-bezier(0.84, 0.13, 0.33, 0.97);
 
   --height-header: 80px;
   --height-button: 56px;
+  --height-service: 200px;
   --ptop: 150px;
   --pd-section: 120px;
 

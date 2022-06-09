@@ -1,6 +1,7 @@
 .header {
   &__top {
     background-color: $cyan2-cl;
+    height: 45px;
     .container {
       display: flex;
       align-items: center;
@@ -57,8 +58,8 @@
     }
     &-menu {
       display: none;
-      width: 40px;
-      height: 22px;
+      width: 45px;
+      height: 30px;
       position: relative;
       cursor: pointer;
       margin-left: 20px;
@@ -89,7 +90,7 @@
       }
       &.active {
         &::before {
-          transform: rotate(45deg) translate(7px, 8px);
+          transform: rotate(45deg) translate(12px, 9px);
           @include transition(transform 0.3s);
         }
         span {
@@ -97,7 +98,7 @@
           @include transition(transform 0.3s);
         }
         &::after {
-          transform: rotate(-45deg) translate(5px, -8px);
+          transform: rotate(-45deg) translate(10px, -9px);
           @include transition(transform 0.3s);
         }
       }
@@ -126,6 +127,7 @@
             text-transform: uppercase;
             padding: 0px 20px;
             color: #cceaf8;
+            width: 100%;
             &:first-child {
               padding-left: unset;
             }
@@ -133,6 +135,9 @@
               padding-left: 5px;
               @include size(10px, 10px);
               opacity: 0.5;
+            }
+            &:hover {
+              background-color: $cyan2-cl;
             }
           }
           &:nth-child(2) {
@@ -144,7 +149,9 @@
             .dropdown {
               position: absolute;
               top: 55px;
+              width: calc(100% - 20px);
               opacity: 0;
+              z-index: 1000;
               visibility: hidden;
               @include transition($t);
               ul {
@@ -180,6 +187,8 @@
             .dropdown {
               position: absolute;
               top: 55px;
+              z-index: 1000;
+              width: 100%;
               display: none;
               ul {
                 display: flex;
@@ -228,6 +237,23 @@
     &__bottom {
       display: none;
     }
+    &__nav {
+      .nav {
+        position: relative;
+        &.active {
+          width: 100vw;
+          height: 100vh;
+          opacity: 0.5;
+          background-color: $gray-cl;
+          position: fixed;
+        }
+        &__left {
+          height: 100%;
+          width: 50%;
+          background-color: $black-cl;
+        }
+      }
+    }
   }
 }
 @include xs {
@@ -237,20 +263,6 @@
     }
     &__bottom {
       display: none;
-    }
-  }
-}
-.slider {
-  &__img {
-    height: calc(100vh - 181px);
-    width: 100%;
-    object-fit: cover;
-    overflow: hidden;
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      overflow: hidden;
     }
   }
 }
